@@ -1,0 +1,9 @@
+language: bash
+
+script: make test
+
+addons:
+  apt:
+    packages:
+      - man2html
+      - calibre
