@@ -9,6 +9,10 @@ I find reading man pages on my ebook reader on the go very practical.
 You need `man2html` and `calibre` installed, and of course the list of
 man pages you want to read, installed such that `man` can find them.
 
+Note that on Debian/Ubuntu, the `man2html-base` package is enough, the
+`man2html` package brings in Apache as well for a CGI interface, which
+is not useful.
+
 ## Usage
 
 Simply run the generate script, passing the list of desired man pages,

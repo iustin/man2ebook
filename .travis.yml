@@ -5,5 +5,5 @@ script: make test
 addons:
   apt:
     packages:
-      - man2html
+      - man2html-base
       - calibre
