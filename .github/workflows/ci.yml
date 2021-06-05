@@ -1,0 +1,35 @@
+on:
+  # Trigger the workflow on push or
+  # pull request, but only for the
+  # master branch.
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  # Weekly run to account for
+  # changed dependencies.
+  schedule:
+    - cron: '17 04 * * 0'
+
+name: CI
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -yy man2html-base calibre
+          sudo apt-get install -yy shelltestrunner
+
+      - name: Run tests
+        run: make test
+
+      - name: Lint thecode
+        run: make lint
