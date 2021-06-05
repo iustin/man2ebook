@@ -25,8 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get install -yy man2html-base calibre
-          sudo apt-get install -yy shelltestrunner
+          sudo apt-get install -yy -q man2html-base
+          sudo apt-get install --no-install-recommends -yy -q calibre
+          sudo apt-get install -yy -q shelltestrunner
 
       - name: Run tests
         run: make test
